@@ -11,7 +11,7 @@ It consists a a very cut down Windows build environment based on the [Lemon tool
 1. Go into the Projects\SaxOffender folder
 2. Open "_DevCmdPrompt.cmd" to bring up a command prompt
 3. Run ConvertAssets.cmd to convert all the graphic assets
-4. Run BuildDemo.cmd to build and run the demo in an AROS environment
+4. Run BuildDemo.cmd to build and run the demo in an AROS environment (I use the A500 KS1.3 rom but don't want to include it here for obvious reasons)
 
 Each demo "part" is in its own folder under Projects\SaxOffender\\\<part>
 
