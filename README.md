@@ -2,9 +2,7 @@
 
 ## What is it?
 
-This is the 68000 assembler source code for the Planet Jazz "Sax Offender" demo.
-
-[Sax Offender on Pouet.net](https://www.pouet.net/prod.php?which=)
+This is the 68000 assembler source code for the Planet Jazz ["Sax Offender"](https://www.pouet.net/prod.php?which=) demo.
 
 It consists a a very cut down Windows build environment based on the [Lemon toolchain](https://www.pouet.net/prod.php?which=65625) by Hannibal.
 
@@ -17,9 +15,9 @@ It consists a a very cut down Windows build environment based on the [Lemon tool
 
 Each demo "part" is in its own folder under Projects\SaxOffender\\\<part>
 
-The "Framework" folder is probably the most generic and useful as it contains all the help functions, libraries, startup code, etc.
+The "Framework" folder is probably the most generic and useful as it contains all the helper functions, libraries, startup code, etc.
 
-Any problems email me or contact Antiriad_UK on [English Amiga Board](http://eab.abime.net/index.php).
+Any problems [email me](mailto:jon@autoitscript.com) or contact Antiriad_UK on [English Amiga Board](http://eab.abime.net/index.php).
 
 ## Thanks
 
