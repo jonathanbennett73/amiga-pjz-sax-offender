@@ -1,0 +1,10 @@
+{
+	"files.eol": "\n",
+        "editor.tabSize": 8,
+        "editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"editor.stablePeek": true,
+	"amiga-assembly.format.preferedCommentPosition": 41,
+	"amiga-assembly.format.preferedIntructionPosition": 9,
+	"amiga-assembly.format.instructionToDataDistance": 1
+}

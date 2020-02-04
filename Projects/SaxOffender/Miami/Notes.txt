@@ -1,0 +1,39 @@
+Dual playfield, 3 bitplanes.
+Double buffered copper list
+
+PF1 (priority set to behind PF2)
+--------------------------------
+2 BPL DMA
+Palm trees (bpl 3)
+Sine scroller (bpl1)
+
+Palm trees screen is 352(44)x272x1, single buffered. But is 3 screens wide (screen1, screen2, copy of screen1)
+44x272=11968x3=35904
+
+Sine scroller is 1bpl as above (35904) 
+We draw in screen1 for main screen and screen 2 for double buffer to avoid wasting too much.
+
+Total chip= 35904x3=107712
+
+PF2
+---
+1 BPL DMA
+Single line of 352. BPLMOD set to -44 to repeat the line.
+
+Front layer (smaller height, bpl 2)
+
+
+
+Color list is done via 4 copperlist sections that just contain the color list.
+This list is accessed via a copjmp2.
+
+Source_Palette (original palette info of words)
+
+Current_Palette (copy of original source palette while transitions to another)
+Current_Palette_Dark (darkened copy)
+Current_Palette_Light (lightened copy)
+
+Then create 4 copperlists with a random number 0-3 (and 4-1)
+0-1 original
+2 dark
+3 light

@@ -1,0 +1,19 @@
+
+object_calc_line_list
+         clip_line_list
+object_draw_lines
+fill_objec
+
+face_calc_line_list
+         clip_line_list
+
+line_list_format
+         colour.w (paper.b + ink.b)
+         vertex1.w
+         vertex2.w
+         $8000
+         colour.w
+         vertex1.w
+         vertex2.w
+         $8000
+         $8000

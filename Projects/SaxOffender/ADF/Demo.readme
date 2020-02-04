@@ -1,0 +1,53 @@
+                _                               __
+      ____     / ¡  ____     ____     ____     / /_
+    _/ __ \_ _/  |__\__ \_ _/ __ \_ _/ __ \_ _/ __/__    .
+   ¡   `)   ¡    |   ('   ¡   |)   ¡   `)---|   `)   ¡   .
+   `---`¯¯¯¯`----^--------^---!____!--------^--------'   |
+                        _     ____     ____ ·L  ____     |
+     ·             ___ ¡ \_ __\__ \_ __\__ \_ __\__ \_   |
+     -\ \-- ----- ¡   (!   ¡   ('   ¡    ----¡    ----¡ -'
+         ·        `--------^--------^--------^--------'
+
+                       "Sax Offender"
+
+              Planet Jazz strikes back in 2020!
+
+            ·*·  Optic ·*· Tecon ·*· Antiriad ·*·
+
+                  Released at the GERP party
+                  held by Traktor and Nature
+                  in Skövde, Sweden, 7-9 feb
+
+          Runs on no less than an Amiga 500 + 512k
+
+Note about the music:
+-  There seems to be a flaw with the replayer (PreTracker v1.0) 
+   so that a few of the snare hits will sound either "weak" 
+   or "louder" on some configs.
+
+-----------------------------------------------------
+
+Sourcecode will be shortly after demo release for you
+to laugh at:
+https://github.com/jonathanbennett73
+
+-----------------------------------------------------
+
+Thanks to these people for the tools and scripts used
+in this demo. It wouldn't have been possible without
+you!
+
+ross - NRV2S Packer
+Hannibal/Lemon. - KingCon
+Pink/Abyss - PreTracker
+bifat/TEK - Cranker
+Soundy/The Deadliners - Gradient Master
+Axis/Oxyron - Planet Rocklobster source
+Frank Wille - VASM 68k
+prb28 - ASM extension for VSCode
+Toni Wilen - WinUAE
+
+Plus thanks to the denizens of English Amiga Board. Come say
+hello!
+- Antiriad (Jonathan Bennett <jon@autoitscript.com)
+  February 2020.

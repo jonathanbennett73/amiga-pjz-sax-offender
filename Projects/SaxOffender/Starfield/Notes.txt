@@ -1,0 +1,13 @@
+
+P0
+Palette changes in P0 are 16 colours (8 per PF)
+Stars on dualplayfied. 2 bpl, with 1bpl at front (blank)
+Script triggers switch to picture on 1bpl at front (all black)
+Script triggers palette change to pure white for 1bpl logo
+Script triggers palette change to pure white for 1bpl logo and black for stars
+
+P1
+Swap screen to pure 4bpl
+Swap image to full logo, all colors white
+Pallete code changes to 16 colour (actually stays same unless logo ends up as 32 cols)
+Script triggers palette change to full color.

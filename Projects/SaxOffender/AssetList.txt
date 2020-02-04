@@ -1,0 +1,78 @@
+
+// Starfield First logo
+Assets\PJZ_logo2019_320x256x4.png AssetsConverted\PJZ_logo2019_320x256x4_inter -format=4 -w=320 -h=256 -interleaved -rawpalette -ftpalette=dc.w
+Assets\PJZ_logo2019_Sil_320x256x1.png AssetsConverted\PJZ_logo2019_Sil_320x256x1 -format=1 -w=320 -h=256
+//Assets\PJZ_logo2019_Out_320x256x1.png AssetsConverted\PJZ_logo2019_Out_320x256x1 -format=1 -w=320 -h=256
+
+// Precalc
+Assets\Precalc_Logo_320x256x5.png AssetsConverted\Precalc_Logo_320x256x5 -format=5 -w=320 -h=256 -rawpalette -ftpalette=dc.w
+Assets\Precalc_Logo_Sil_320x256x1.png AssetsConverted\Precalc_Logo_Sil_320x256x1 -format=1 -w=320 -h=256
+Assets\Dedication_320x256x5.png AssetsConverted\Precalc_Dedication_320x256x5 -format=5 -w=320 -h=256 -rawpalette -ftpalette=dc.w
+
+
+// Miami
+Assets\Miami_Palm_1056x256x1.png AssetsConverted\Miami_Palm_1056x256x1 -format=1 -w=1056 -h=256
+Assets\Miami_Buildings_32x24x1.png AssetsConverted\Miami_Buildings_32x24x1 -format=1
+//Assets\Miami_Font_8x7x1.png AssetsConverted\Miami_Font_8x8x1 -format=1 -monospacefont "!\'#$%&'h \n()*+,-./01\n23456789:;\n<=>?@ABCDE\nFGHIJKLMNO\nPQRSTUVWXY\nZtra" -x=0 -y=0 -w=8 -h=10 -gap=6 -ftfont=dc.b -ftbob=dc.w
+Assets\Miami_Font3b_8x7x1.png AssetsConverted\Miami_Font_8x8x1 -format=1 -monospacefont "!\'#$%&'h \n()*+,-./01\n23456789:;\n<=>?@ABCDE\nFGHIJKLMNO\nPQRSTUVWXY\nZtra" -x=0 -y=0 -w=8 -h=10 -gap=6 -ftfont=dc.b -ftbob=dc.w
+Assets\Miami_BirdAnim_32x32_0.png AssetsConverted\Miami_BirdAnim_32x32_8Frames -format=s16 -anim=8 -x=0 -y=16 -w=32 -h=32 
+
+// Pics
+Assets\PlayItAgainSam_320x256x5.png AssetsConverted\PlayItAgainSam_320x256x5_inter -format=5 -w=320 -h=256 -interleaved -rawpalette -ftpalette=dc.w
+
+// Greetz warp
+Assets\Warp_352x272x1_0.png AssetsConverted\Warp_352x272x1_0 -format=1 -w=352 -h=272
+Assets\Warp_352x272x1_1.png AssetsConverted\Warp_352x272x1_1 -format=1 -w=352 -h=272
+Assets\Warp_352x272x1_2.png AssetsConverted\Warp_352x272x1_2 -format=1 -w=352 -h=272
+Assets\Warp_352x272x1_3.png AssetsConverted\Warp_352x272x1_3 -format=1 -w=352 -h=272
+Assets\Warp_352x272x1_4.png AssetsConverted\Warp_352x272x1_4 -format=1 -w=352 -h=272
+Assets\Warp_352x272x1_5.png AssetsConverted\Warp_352x272x1_5 -format=1 -w=352 -h=272
+Assets\Warp_352x272x1_6.png AssetsConverted\Warp_352x272x1_6 -format=1 -w=352 -h=272
+
+// Greetz font
+Assets\Font_PJZ_01_8x16x2_3Col.png AssetsConverted\Greetz_Font_8x16x2 -format=2 -proportionalfont "ABCDEFGHIJKLMNOPQRST\nUWXYZabcdefghijklmno\npqrstuvwxyz12345678\n9()!?@.,'-+=/\\:;~#%^\n&V0" -x=0 -y=0 -h=16 -gap=0 -interleaved -ftfont=dc.b -ftbob=dc.w -rawpalette -ftpalette=dc.w
+
+
+// Endcredits
+Assets\NeonDays_320x256x5.png AssetsConverted\NeonDays_320x256x5_inter -format=5 -w=320 -h=256 -interleaved -rawpalette -ftpalette=dc.w
+Assets\NeonDays_320x256x5.png AssetsConverted\NeonDays_320x256x5 -format=5 -w=320 -h=256 -rawpalette -ftpalette=dc.w
+Assets\NeonDays_320x256x5_Mono.png AssetsConverted\NeonDays_320x256x5_Mono -format=5 -w=320 -h=256 -rawpalette -ftpalette=dc.w
+//Assets\NeonDays_320x256x4.png AssetsConverted\NeonDays_320x256x4 -format=4 -w=320 -h=256 -rawpalette -ftpalette=dc.w
+Assets\NeonDays_320x256x3.png AssetsConverted\NeonDays_320x256x3_inter -format=3 -w=320 -h=256 -interleaved -rawpalette -ftpalette=dc.w
+//Assets\EndCredits_Overlay_352x272x3.png AssetsConverted\EndCredits_Overlay_352x272x3_inter -format=3 -w=352 -h=272 -interleaved -rawpalette -ftpalette=dc.w
+
+Assets\Font_PJZ_01_8x16x1.png AssetsConverted\Greetz_Font_8x16x1 -format=1 -proportionalfont "ABCDEFGHIJKLMNOPQRST\nUWXYZabcdefghijklmno\npqrstuvwxyz12345678\n9()!?@.,'-+=/\\:;~   \n V" -x=0 -y=0 -h=18 -gap=0 -ftfont=dc.b -ftbob=dc.w
+// Had to make 1bitplane font higher due to bug in kingcon
+
+
+// Dotflag
+Assets\Dotflag_Walk_Anim_40x32x2.png AssetsConverted\Dotflag_Walk_Anim_40x32x2_0_inter -format=2 -w=48 -h=32 -interleaved -rawpalette
+Assets\Dotflag_Walk_Anim_40x32x2.png AssetsConverted\Dotflag_Walk_Anim_40x32x2_1_inter -format=2 -w=48 -h=32 -y=32 -interleaved
+Assets\Dotflag_Walk_Anim_40x32x2.png AssetsConverted\Dotflag_Walk_Anim_40x32x2_2_inter -format=2 -w=48 -h=32 -y=64 -interleaved
+Assets\Dotflag_Walk_Anim_40x32x2.png AssetsConverted\Dotflag_Walk_Anim_40x32x2_3_inter -format=2 -w=48 -h=32 -y=96 -interleaved
+Assets\Dotflag_Walk_Anim_40x32x2.png AssetsConverted\Dotflag_Walk_Anim_40x32x2_4_inter -format=2 -w=48 -h=32 -y=128 -interleaved
+Assets\Dotflag_Walk_Anim_40x32x2.png AssetsConverted\Dotflag_Walk_Anim_40x32x2_5_inter -format=2 -w=48 -h=32 -y=160 -interleaved
+Assets\Dotflag_Walk_Anim_40x32x2.png AssetsConverted\Dotflag_Walk_Anim_40x32x2_6_inter -format=2 -w=48 -h=32 -y=192 -interleaved
+Assets\Dotflag_Walk_Anim_40x32x2.png AssetsConverted\Dotflag_Walk_Anim_40x32x2_7_inter -format=2 -w=48 -h=32 -y=224 -interleaved
+
+Assets\Dotflag_Circle1_Anim_40x32x2.png AssetsConverted\Dotflag_Circle1_Anim_40x32x2_0_inter -format=2 -w=48 -h=32 -interleaved -rawpalette
+Assets\Dotflag_Circle1_Anim_40x32x2.png AssetsConverted\Dotflag_Circle1_Anim_40x32x2_1_inter -format=2 -w=48 -h=32 -y=32 -interleaved
+Assets\Dotflag_Circle1_Anim_40x32x2.png AssetsConverted\Dotflag_Circle1_Anim_40x32x2_2_inter -format=2 -w=48 -h=32 -y=64 -interleaved
+Assets\Dotflag_Circle1_Anim_40x32x2.png AssetsConverted\Dotflag_Circle1_Anim_40x32x2_3_inter -format=2 -w=48 -h=32 -y=96 -interleaved
+Assets\Dotflag_Circle1_Anim_40x32x2.png AssetsConverted\Dotflag_Circle1_Anim_40x32x2_4_inter -format=2 -w=48 -h=32 -y=128 -interleaved
+Assets\Dotflag_Circle1_Anim_40x32x2.png AssetsConverted\Dotflag_Circle1_Anim_40x32x2_5_inter -format=2 -w=48 -h=32 -y=160 -interleaved
+Assets\Dotflag_Circle1_Anim_40x32x2.png AssetsConverted\Dotflag_Circle1_Anim_40x32x2_6_inter -format=2 -w=48 -h=32 -y=192 -interleaved
+Assets\Dotflag_Circle1_Anim_40x32x2.png AssetsConverted\Dotflag_Circle1_Anim_40x32x2_7_inter -format=2 -w=48 -h=32 -y=224 -interleaved
+
+Assets\Dotflag_Pulse2_Anim_40x32x2.png AssetsConverted\Dotflag_Pulse_Anim_40x32x2_0_inter -format=2 -w=48 -h=32 -interleaved -rawpalette
+Assets\Dotflag_Pulse2_Anim_40x32x2.png AssetsConverted\Dotflag_Pulse_Anim_40x32x2_1_inter -format=2 -w=48 -h=32 -y=32 -interleaved
+Assets\Dotflag_Pulse2_Anim_40x32x2.png AssetsConverted\Dotflag_Pulse_Anim_40x32x2_2_inter -format=2 -w=48 -h=32 -y=64 -interleaved
+Assets\Dotflag_Pulse2_Anim_40x32x2.png AssetsConverted\Dotflag_Pulse_Anim_40x32x2_3_inter -format=2 -w=48 -h=32 -y=96 -interleaved
+Assets\Dotflag_Pulse2_Anim_40x32x2.png AssetsConverted\Dotflag_Pulse_Anim_40x32x2_4_inter -format=2 -w=48 -h=32 -y=128 -interleaved
+Assets\Dotflag_Pulse2_Anim_40x32x2.png AssetsConverted\Dotflag_Pulse_Anim_40x32x2_5_inter -format=2 -w=48 -h=32 -y=160 -interleaved
+Assets\Dotflag_Pulse2_Anim_40x32x2.png AssetsConverted\Dotflag_Pulse_Anim_40x32x2_6_inter -format=2 -w=48 -h=32 -y=192 -interleaved
+Assets\Dotflag_Pulse2_Anim_40x32x2.png AssetsConverted\Dotflag_Pulse_Anim_40x32x2_7_inter -format=2 -w=48 -h=32 -y=224 -interleaved
+
+
+
+

@@ -1,0 +1,286 @@
+Short:        Amiga executable and data cruncher
+Author:       bifat/tek
+Uploader:     bifat@neoscientists.org
+Type:         util/pack
+Version:      0.65
+Architecture: m68k-amigaos
+
+
+Cranker by The Electronic Knights
+---------------------------------------------------------------------
+
+
+Cranker is an Amiga executable and data cruncher and decruncher.
+
+Executables decrunch while loading and decrunching requires no
+additional memory. Cranker is by far the fastest way to run large
+executables from disk on old, unexpanded Amigas.
+
+You can choose from different executable headers: plain/standard,
+minimal, with text progress or graphical progress display.
+
+All source codes are included, including cruncher, executable and
+data decrunchers. You can specify a modified decruncher in the
+commandline and produce custom executables, for example showing
+a logo of your group, or run an OS-legal effect while loading.
+
+As of version 0.51, only an Amiga executable of the cruncher is
+included. See download section for other platforms, and src/INSTALL
+on how to build Cranker yourself and using it on different platforms.
+
+
+Rationale:
+
+Large OCS demos (onefilers) often reserve most available memory in
+their executable sections. This is best practice and recommended.
+
+Crunching them with most crunchers like Imploder or Powerpacker is
+not an option, because all crunched data plus all sections must fit
+into memory at the same time, so the demo will fail to run in the 
+minimal configuration (typically 512k+512k).
+
+Titanics cruncher was 30 years ahead of its time in that it includes
+a decruncher that loads from an overlay hunk, which requires no (or
+little) additional memory. Unfortunately the Titanics decruncher is
+very slow (it probably does not really load and decrunch at the same
+time, but alternates between loading and decrunching), and its crunch
+ratio is bad. Another issue found with Titanics is that if a program 
+disables multitasking, the disk motor can keep spinning for the whole
+time it is running.
+
+Cranker addresses all this, and more. It certainly does load and
+decrunch at the same time, it uses no additional memory, it has a
+solid crunch ratio, and it is blazingly fast. Since version 0.40
+Cranker also addresses the disk motor issue.
+
+
+Some benchmarks:
+
+Rebels Retrodentro, crunched size:
+----------------------------------
+Original : 499768 Bytes
+Titanics : 236388 Bytes
+Cranker  : 217548 Bytes
+Imploder : 213332 Bytes - does not work with 1mb
+Shrinkler: 179472 Bytes
+
+Starting time, Kick 1.3:
+----------------------------------
+Cranker  : 20s
+Imploder : 28s - does not work with 1mb
+Titanics : 35s
+Original : 41s
+Shrinkler: 87s
+
+Starting time, Kick 2.04:
+----------------------------------
+Cranker  : 14s
+Imploder : 24s - does not work with 1mb
+Original : 33s
+Titanics : 46s
+Shrinkler: 86s
+
+
+Usage:
+
+$ cranker -h
+argument template:
+    -f FROM       input file
+    -o TO         output file
+   -mo MAXOVH/N   max. overhead (else store hunk, or error)
+    -q QUIET/S    quiet operation
+Data options:
+   -cd CDATA/S    crunch raw data
+   -dd DDATA/S    decrunch raw data
+   -eo ENCOVH/S   encode overhead into first header byte
+Executable options:
+    -m MERGE/S    merge hunks (dangerous)
+    -s STORE/S    do not crunch, store all hunks
+    -a APPEND/K   userdata file to append to executable
+    -t TEXT/K     text line to display while loading
+   -tf TEXTFILE/K text file to display while loading
+    -p PICTURE/K  IFF ILBM picture to show while loading
+   -st SHOWTIME/N min. number of seconds to display picture
+    -b BLACK/S    black screen (same as '-d black')
+    -d DECRANKER  name of an internal decranker to use
+   -ld LISTDEC/S  list available internal decrankers
+   -ed EXTDEC/K   use external decranker from this file
+
+A 'decranker' is an executable header with certain features.
+You can specify an internal decranker using the -d option:
+
+default         can show text
+progress        can show text and shows progress
+minimal         silent, read-ahead disabled
+cinema          shows a progress bar on a black screen
+picture         shows a picture while loading
+black           black screen while loading
+
+All decrankers are fully conformant to the operating system. The
+executables should run on all real Amigas, all OS versions and from
+all filesystems and devices.
+
+About the decrankers 'cinema', 'picture', and 'black': These
+decrankers obscure the shell or Workbench with a screen until the
+executable exits. They make little sense if they are not used to run
+fullscreen applications, games or demos. Don't worry: This is a
+regular Intuition screen, and it will be opened after all memory
+for the program has been allocated, so if the system runs out of
+memory, the screen will not open, but the executable is started
+anyway.
+
+About the 'picture' decranker: Supports IFF pictures with up to 32
+colors, plus EHB and HAM. On v36 or later tries to enforce a PAL
+screen. Better do not use freaked-out image dimensions, it is
+recommended to stick with 320x256 (or less).
+
+Regarding the APPEND option: This allows extra data to be added to
+the executable. Your program, when started, can load the extra data
+from e.g. BPTR filehandle = FindTask(NULL)->tc_UserData . This must
+be commented in in decranker.asm, it is not available by default.
+
+Expect bugs and problems. In any case, keep your original binaries.
+Feedback is welcome.
+
+
+Technical info:
+
+Cranker does not allocate memory. All allocations are made by the OS
+loader. Hence it is decided right at the beginning if the executable
+fits into memory and will be loaded at all. It uses a combination of
+techniques, hunk overlay, asynchronous and buffered I/O, and in-place
+decrunching with one of the fastest decrunchers in existence. Relocs
+are packed into 1, 2, and 4 bytes entities.
+
+Due to its complexity, the decrunch header is quite large, but the
+decrunch header and a few extra bytes to allow in-place decrunching
+are the only memory that adds to the required memory of the
+executable. It will be freed by the OS at exit, like all other
+sections.
+
+So why is it tricky? Cranker operates on three data pointers at the
+same time, one for loading, one for reading crunched data, one for
+writing out the decrunched data. All three pointers wander forwards
+in a hunk's memory area and must not overrun each other:
+ _______________________________________________________  hunk
+|                 |                  :                : |
+|   decrunched    |   crunched data  :  yet unloaded  : |
+|_________________|__________________:________________:_|
+^---->            ^---->             ^---->            ^- overhead
+destptr           srcptr             loadptr
+
+The crunched data is aligned towards the end of the hunk. 
+The overhead (usually only a few bytes) gets calculated for the
+particular data and ensures that the destination pointer does not
+overrun the source pointer. Loading takes place in DOS packets, which
+are requested from the executable's file handler task. When a packet
+arrives, the load pointer is updated and the next packet requested.
+The decruncher starts immediately with the first packet, but it
+suspends waiting for the next packet if and when the source pointer
+catches up with the load pointer. Another complexity is imposed by
+the reloc tables, because after loading a hunk, for loading them
+efficiently, the loader has to switch from asynchronous to buffered
+I/O (with a small load buffer on the stack), and back to asynchronous
+for the next hunk.
+
+At least when loading from floppy disk the construct should be I/O
+bound under all practical circumstances, even if asynchronoucy kicks
+in just a little. 
+
+
+Download:
+
+http://neoscientists.org/~bifat/binarydistillery/cranker.lha
+Precompiled Linux, Windows, Mac OS X binaries:
+http://neoscientists.org/~bifat/binarydistillery/cranker/
+
+
+Authors:
+
+Coding by Bifat/TEK <bifat at neoscientists.org>
+LZO by Markus Franz Xaver Johannes Oberhumer
+
+
+Changes:
+
+0.65
+The picture option was pointless when starting an executable with a
+fast CPU from harddisk. Added SHOWTIME argument, the minimum number
+of seconds to display the picture. Default: 5. Many visual glitches
+when showing the picture have been removed.
+
+0.64
+Added 'picture' decranker (and -p option) for showing an IFF ILBM
+picture while loading. Added 'black' decranker (and -b option) that
+shows a black screen while loading. Added an 'append' option that
+allows to append a file of userdata to the executable (to be loaded
+from inside your program - see decranker.asm on how to obtain the
+filehandle). In case of an I/O error, the cinema decranker forgot
+to close the progress bar screen, corrected.
+
+0.63
+Errors were not reported when saving the crunched file, corrected.
+The crunched format has changed: Now an initial payload of up to
+65535 bytes can be passed to hooks. This can be used with the new
+TEXTFILE option for displaying large texts (ANSI logos, etc.) - not
+just a single line of text. The NOFLASH option has been removed - if
+you want a decranker that pokes to the background color register,
+assemble one yourself. Major code cleanup; all decrankers are now
+built from the same source. Improved source code documentation on
+writing custom hooks. 
+
+0.60
+This version can continue loading ahead. (Previous versions loaded
+ahead one readsize only.) This allows for faster loading, depending
+on the media, CPU and filesystem fragmentation. 
+The decruncher has been reworked and is faster, too.
+
+0.53
+Now supports dreloc32 hunks, can now crunch vbcc executables.
+Reduced memory consumption for crunching.
+Major source code cleanup.
+Improved error messages, safe decrunching of defective data.
+Added cinema decranker. Added multiple inbuilt decrankers.
+
+0.51
+Partially uninitialized hunks are now supported.
+Debug and symbol hunks are now handled and stripped away.
+The merge option appears to be more stable now.
+Added -eo option to encode the overhead into the crunched data
+header. Suggested by Origo.
+The build procedure and sources have been cleaned up. The Linux,
+Windows, and Mac OS X binaries have been dropped from this package.
+See src/INSTALL on building them yourself.
+
+0.42
+The Amiga version now works on Kickstart 1.x and on 68000 CPUs, 
+a FPU is no longer required. Requested by Sachy. Crunching fastmem
+hunks is now supported. Added an external example decrunch header.
+
+0.40
+When an executable was started that disabled multitasking, the disk
+motor could keep spinning while the executable was running. Corrected
+by synchronizing on an ACTION_FLUSH packet. Found the same issue with
+Titanics later, so this is another reason for using Cranker now.
+
+0.31
+Mac OS X version and Makefile included, supplied by Bonefish. Thanks!
+
+0.3
+Added options CDATA, DDATA, MAXOVH, MERGE, renamed EXTDECR to
+EXTHEAD. Removed former hardcoded limit of 64 bytes maximum overhead.
+
+0.21
+Fixed a bug in the decrunch header when a load error occurred
+
+0.2
+Added options for displaying text and to avoid poking to the bgcolor
+register. Incompressible hunks are being stored now. The source of
+the decrunch header is now included and a custom header can be
+specified in the command line. This way you can use Cranker as a
+loader system, show a progress bar, or disable crunching in the
+commandline and just exploit async I/O to show an effect while
+loading.
+
+0.1
+initial release

@@ -1,0 +1,44 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	
+	"settings": {
+		"amiga-assembly.cstool": "..\\..\\ToolChain\\VSCodeExt-bin\\cstool.exe",	//needs this to be correct for remote debugging as well
+
+		"amiga-assembly.vasm": {
+			"enabled": true,
+			"file": "..\\..\\ToolChain\\VSCodeExt-bin\\vasmm68k_mot.exe",
+			"options": [
+				"-m68000",
+				"-Fhunk",
+				"-kick1hunks",
+				"-linedebug",
+				"-I",
+				"Include"
+			]
+		},
+
+		"amiga-assembly.vlink": {
+			"enabled": true,
+			"file": "..\\..\\ToolChain\\VSCodeExt-bin\\vlink.exe",
+			"includes": "",
+			"excludes": "",
+			"exefilename": "${workspaceFolder}\\vscode-hd0\\gencop",
+			"options": [
+				"-bamigahunk",
+				"-Bstatic"//,
+				//"-s"	// Strip symbols
+			]
+		},
+		"amiga-assembly.adfgenerator": {
+			"ADFToolsParentDir": "..\\..\\ToolChain\\VSCodeExt-bin",
+			"sourceRootDir": "${workspaceFolder}\\vscode-hd0",
+			"outputADFFile": ".\\build\\disk.adf",
+			"includes": "**/*",
+			"excludes": "**/.*"
+		},
+	}
+}
