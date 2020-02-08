@@ -6,6 +6,10 @@ This is the 68000 assembler source code for the Planet Jazz ["Sax Offender"](htt
 
 It consists a a very cut down Windows build environment based on the [Lemon toolchain](https://www.pouet.net/prod.php?which=65625) by Hannibal.
 
+## License
+
+The original source code (Under the Projects folder) is under the MIT license. This does not refer to any other tools and utilties that are included such as WinUAE/VASM, etc. Those utilities are covered by their own licenses.
+
 ## How to Use
 
 1. Go into the Projects\SaxOffender folder
