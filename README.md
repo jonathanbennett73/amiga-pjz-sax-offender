@@ -8,7 +8,7 @@ It consists of a very cut down Windows build environment based on the [Lemon too
 
 ## License
 
-The original source code (Under the Projects folder) is under the MIT license. This does not refer to any other tools and utilties that are included such as WinUAE/VASM, etc (Toolchain folder). Those utilities are covered by their own licenses.
+The original source code (Under the Projects folder) is under the MIT license. This does not refer to any other tools and utilties that are included such as WinUAE/VASM, etc (Toolchain and WinUAE folders). Those files are covered by their own licenses.
 
 ## How to Use
 
