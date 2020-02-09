@@ -2,7 +2,7 @@
 
 ## What is it?
 
-This is the 68000 assembler source code for the Planet Jazz ["Sax Offender"](https://www.pouet.net/prod.php?which=) demo.
+This is the 68000 assembler source code for the Planet Jazz ["Sax Offender"](https://www.pouet.net/prod.php?which=84820) demo.
 
 It consists of a very cut down Windows build environment based on the [Lemon toolchain](https://www.pouet.net/prod.php?which=65625) by Hannibal.
 
